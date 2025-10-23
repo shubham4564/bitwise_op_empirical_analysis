@@ -119,7 +119,3 @@ Open these HTML files in your browser to view the plots.
 
 - For small fixes (typos, doc improvements): open a PR.
 - For analysis changes: briefly describe the change, affected datasets, and any assumptions.
-
-## License
-
-Specify your license here (e.g., MIT). If you’re publishing this repository, add a `LICENSE` file and update this section accordingly.
