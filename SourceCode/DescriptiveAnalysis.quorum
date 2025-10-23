@@ -1,0 +1,100 @@
+use Libraries.Compute.Statistics.DataFrame
+
+//Descriptive analysis for AND 
+count = 1
+repeat 5 times
+    text name = "res_and"
+    name = name + count
+    count = count + 1
+    
+    DataFrame frame
+    frame:Load("fulldata.csv")
+    frame:AddSelectedColumns(name)
+    output "Mean: " + frame:Mean()
+    output "Standard Deviation: " +  frame:StandardDeviation()
+    output "Variance: " + frame:Variance()
+    output name
+end
+
+//Descriptive analysis for OR 
+count = 1
+repeat 3 times
+    text name = "res_or"
+    name = name + count
+    count = count + 1
+    
+    DataFrame frame
+    frame:Load("fulldata.csv")
+    frame:AddSelectedColumns(name)
+    output "Mean: " + frame:Mean()
+    output "Standard Deviation: " +  frame:StandardDeviation()
+    output "Variance: " + frame:Variance()
+    output name
+end
+
+//Descriptive analysis for XOR 
+count = 1
+repeat 4 times
+    text name = "res_xor"
+    name = name + count
+    count = count + 1
+    
+    DataFrame frame
+    frame:Load("fulldata.csv")
+    frame:AddSelectedColumns(name)
+    output "Mean: " + frame:Mean()
+    output "Standard Deviation: " +  frame:StandardDeviation()
+    output "Variance: " + frame:Variance()
+    output name
+end
+
+//Descriptive analysis for NOT 
+count = 1
+repeat 4 times
+    text name = "res_not"
+    name = name + count
+    count = count + 1
+    
+    DataFrame frame
+    frame:Load("fulldata.csv")
+    frame:AddSelectedColumns(name)
+    output "Mean: " + frame:Mean()
+    output "Standard Deviation: " +  frame:StandardDeviation()
+    output "Variance: " + frame:Variance()
+    output name
+end
+
+
+//Descriptive analysis for LSHIFT 
+count = 1
+repeat 4 times
+    text name = "res_lshift"
+    name = name + count
+    count = count + 1
+    
+    DataFrame frame
+    frame:Load("fulldata.csv")
+    frame:AddSelectedColumns(name)
+    output "Mean: " + frame:Mean()
+    output "Standard Deviation: " +  frame:StandardDeviation()
+    output "Variance: " + frame:Variance()
+    output name
+end
+
+
+
+//Descriptive analysis for RSHIFT 
+count = 1
+repeat 4 times
+    text name = "res_rshift"
+    name = name + count
+    count = count + 1
+    
+    DataFrame frame
+    frame:Load("fulldata.csv")
+    frame:AddSelectedColumns(name)
+    output "Mean: " + frame:Mean()
+    output "Standard Deviation: " +  frame:StandardDeviation()
+    output "Variance: " + frame:Variance()
+    output name
+end

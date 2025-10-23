@@ -1,0 +1,94 @@
+use Libraries.Compute.Statistics.DataFrame
+use Libraries.Interface.Controls.Charts.BoxPlot
+
+DataFrame andframe
+DataFrame orframe
+DataFrame xorframe
+DataFrame notframe
+DataFrame lshiftframe
+DataFrame rshiftframe
+
+andframe:Load("Data\response.csv")
+orframe:Load("Data\response.csv")
+xorframe:Load("Data\response.csv")
+notframe:Load("Data\response.csv")
+lshiftframe:Load("Data\response.csv")
+rshiftframe:Load("Data\response.csv")
+
+andframe:AddSelectedColumns("&")
+andframe:AddSelectedColumns("*")
+andframe:AddSelectedColumns("and")
+andframe:AddSelectedColumns("&&")
+andframe:AddSelectedColumns(".")
+
+orframe:AddSelectedColumns("|")
+orframe:AddSelectedColumns("or")
+orframe:AddSelectedColumns("||")
+
+xorframe:AddSelectedColumns("xor")
+xorframe:AddSelectedColumns("^")
+xorframe:AddSelectedColumns("ExclusiveOR")
+xorframe:AddSelectedColumns("^^")
+
+notframe:AddSelectedColumns("-")
+notframe:AddSelectedColumns("~")
+notframe:AddSelectedColumns("not")
+notframe:AddSelectedColumns("!")
+
+lshiftframe:AddSelectedColumns("<-")
+lshiftframe:AddSelectedColumns("<<")
+lshiftframe:AddSelectedColumns("<$")
+lshiftframe:AddSelectedColumns("lshift")
+
+rshiftframe:AddSelectedColumns("rshift")
+rshiftframe:AddSelectedColumns(">>")
+rshiftframe:AddSelectedColumns(">$")
+rshiftframe:AddSelectedColumns("->")
+
+
+
+BoxPlot andchart = andframe:BoxPlot()
+BoxPlot orchart = orframe:BoxPlot()
+BoxPlot xorchart = xorframe:BoxPlot()
+BoxPlot notchart = notframe:BoxPlot()
+BoxPlot lshiftchart = lshiftframe:BoxPlot()
+BoxPlot rshiftchart = lshiftframe:BoxPlot()
+
+andchart:SetTitle("Boxplot for Bitwise AND Opertors")
+andchart:SetXAxisTitle("Operators")
+andchart:SetYAxisTitle("Response Time (ms)")
+
+orchart:SetTitle("Boxplot for Bitwise OR Opertors")
+orchart:SetXAxisTitle("Operators")
+orchart:SetYAxisTitle("Response Time (ms)")
+
+xorchart:SetTitle("Boxplot for Bitwise XOR Opertors")
+xorchart:SetXAxisTitle("Operators")
+xorchart:SetYAxisTitle("Response Time (ms)")
+
+notchart:SetTitle("Boxplot for Bitwise NOT Opertors")
+notchart:SetXAxisTitle("Operators")
+notchart:SetYAxisTitle("Response Time (ms)")
+
+lshiftchart:SetTitle("Boxplot for Bitwise Leftshift Opertors")
+lshiftchart:SetXAxisTitle("Operators")
+lshiftchart:SetYAxisTitle("Response Time (ms)")
+
+rshiftchart:SetTitle("Boxplot for Bitwise Right shift Opertors")
+rshiftchart:SetXAxisTitle("Operators")
+rshiftchart:SetYAxisTitle("Response Time (ms)")
+
+//andchart:Display(1000,750)
+//orchart:Display(1000,750)
+//xorchart:Display(1000,750)
+//notchart:Display(1000,750)
+//lshiftchart:Display(1000,750)
+rshiftchart:Display(1000,750)
+
+
+//andchart:Share("Images\Boxplot\andboxplot.html")
+//orchart:Share("Images\Boxplot\orboxplot.html")
+//xorchart:Share("Images\Boxplot\xorboxplot.html")
+//notchart:Share("Images\Boxplot\notboxplot.html")
+//lshiftchart:Share("Images\Boxplot\lshiftboxplot.html")
+rshiftchart:Share("Images\Boxplot\rshiftboxplot.html")

@@ -1,0 +1,22 @@
+use Libraries.Compute.Statistics.DataFrame
+use Libraries.Interface.Controls.Charts.Histogram
+use Libraries.Compute.Statistics.Calculations.Summarize
+use Libraries.Compute.Statistics.Tests.CorrelateGroups
+use Libraries.Compute.Statistics.Tests.Regression
+DataFrame frame
+frame:Load("Data\transposedata.csv")
+
+frame:Filter("accuracy = 1")
+
+//frame:AddSelectedFactors("accuracy")
+
+//output frame:ToText()
+
+frame:AddSelectedFactors("operators")
+
+frame:AddSelectedColumns("response time")
+
+Regression regression = frame:RegressionOnSelected()
+output regression:GetFormalSummary()
+
+output regression:GetSummary()

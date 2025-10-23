@@ -1,0 +1,90 @@
+use Libraries.Compute.Statistics.DataFrame
+use Libraries.Compute.Statistics.Tests.CompareMeansPairwise 
+use Libraries.Containers.Array
+
+Array<text> list
+list:Add("Data/individualopdata/and.csv")
+list:Add("Data/individualopdata/or.csv")
+list:Add("Data/individualopdata/xor.csv")
+list:Add("Data/individualopdata/not.csv")
+list:Add("Data/individualopdata/lshift.csv")
+list:Add("Data/individualopdata/rshift.csv")
+
+Array<text> list1
+list1:Add("AND")
+list1:Add("OR")
+list1:Add("XOR")
+list1:Add("NOT")
+list1:Add("Left Shift")
+list1:Add("Right Shift")
+
+
+
+count = 0
+
+repeat 7 times
+    DataFrame frame
+    
+    if list:Get(count) = "Data/individualopdata/and.csv"
+        output "Tukey's HSD Multiple Comparison Test on " + list1:Get(count) +" Operators"
+        frame:Load(list:Get(count))
+        frame:AddSelectedColumnRange(10,14)
+        CompareMeansPairwise compare = frame:CompareMeansPairwiseUsingLenientCorrection()
+
+        // Get the results!
+        //output compare:GetSummary()
+        output compare:GetFormalSummary()
+        
+    elseif (list:Get(count) = "Data/individualopdata/or.csv")
+         output "Tukey's HSD Multiple Comparison Test on " + list1:Get(count) +" Operators"
+        frame:Load(list:Get(count))
+        frame:AddSelectedColumnRange(8,10)
+        CompareMeansPairwise compare = frame:CompareMeansPairwiseUsingLenientCorrection()
+
+        // Get the results!
+       // output compare:GetSummary()
+        output compare:GetFormalSummary()
+
+    elseif (list:Get(count) = "Data/individualopdata/xor.csv")
+         output "Tukey's HSD Multiple Comparison Test on " + list1:Get(count) +" Operators"
+        frame:Load(list:Get(count))
+        frame:AddSelectedColumnRange(9,12)
+        CompareMeansPairwise compare = frame:CompareMeansPairwiseUsingLenientCorrection()
+
+        // Get the results!
+        //output compare:GetSummary()
+        output compare:GetFormalSummary()
+
+    elseif (list:Get(count) = "Data/individualopdata/not.csv")
+         output "Tukey's HSD Multiple Comparison Test on " + list1:Get(count) +" Operators"
+        frame:Load(list:Get(count))
+        frame:AddSelectedColumnRange(9,12)
+        CompareMeansPairwise compare = frame:CompareMeansPairwiseUsingLenientCorrection()
+
+        // Get the results!
+       // output compare:GetSummary()
+        output compare:GetFormalSummary()
+
+    elseif (list:Get(count) = "Data/individualopdata/lshift.csv")
+         output "Tukey's HSD Multiple Comparison Test on " + list1:Get(count) +" Operators"
+        frame:Load(list:Get(count))
+        frame:AddSelectedColumnRange(9,12)
+        CompareMeansPairwise compare = frame:CompareMeansPairwiseUsingLenientCorrection()
+
+        // Get the results!
+        //output compare:GetSummary()
+        output compare:GetFormalSummary()
+
+    elseif (list:Get(count) = "Data/individualopdata/rshift.csv")
+         output "Tukey's HSD Multiple Comparison Test on " + list1:Get(count) +" Operators"
+        frame:Load(list:Get(count))
+        frame:AddSelectedColumnRange(9,12)
+        CompareMeansPairwise compare = frame:CompareMeansPairwiseUsingLenientCorrection()
+
+        // Get the results!
+        //output compare:GetSummary()
+        output compare:GetFormalSummary()
+    end 
+
+    count =count + 1
+end

@@ -1,0 +1,38 @@
+use Libraries.Compute.Statistics.DataFrame
+use Libraries.Compute.Statistics.Tests.CompareMeans
+use Libraries.Containers.Array
+
+
+Array<text> list
+list:Add("Data/individualopdata/andtranspose.csv")
+list:Add("Data/individualopdata/ortranspose.csv")
+list:Add("Data/individualopdata/xortranspose.csv")
+list:Add("Data/individualopdata/nottranspose.csv")
+list:Add("Data/individualopdata/lshifttranspose.csv")
+list:Add("Data/individualopdata/rshifttranspose.csv")
+
+Array<text> list1
+list1:Add("AND")
+list1:Add("OR")
+list1:Add("XOR")
+list1:Add("NOT")
+list1:Add("lshift")
+list1:Add("rshift")
+
+
+count = 0
+
+repeat 6 times
+    output "One Way ANOVA test on " + list1:Get(count) +" Operators"
+    DataFrame frame
+    frame:Load(list:Get(count))
+
+    frame:AddSelectedFactors("operators")
+    frame:AddSelectedColumns("response time")
+    
+    CompareMeans compare = frame:CompareMeans()
+    // Get the results!
+    //output compare:GetSummary()
+    output compare:GetFormalSummary()
+    count = count + 1
+end

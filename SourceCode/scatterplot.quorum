@@ -1,0 +1,18 @@
+use Libraries.Compute.Statistics.DataFrame
+use Libraries.Interface.Controls.Charts.ScatterPlot
+
+DataFrame frame
+frame:Load("Data\transposedata.csv")
+
+frame:Filter("accuracy = 1")
+
+frame:AddSelectedColumns("operators,response time")
+ScatterPlot chart = frame:ScatterPlot()
+chart:ShowLinearRegression(true)
+
+chart:SetTitle("Scatter Plot for Operators vs Response Time")
+chart:SetXAxisTitle("Operators")
+chart:SetYAxisTitle("Response Time (ms)")
+chart:Display(1000,650)
+
+chart:Share("Images\scatterplot.html")
